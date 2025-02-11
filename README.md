@@ -10,3 +10,5 @@ On Darwin (mac) run:
 On Linux (Debian based) run:
 `$SHELL local-setup-linux.sh`
 
+On powershell (windows) run:
+`./local-setup-windows.ps1`
