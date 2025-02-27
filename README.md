@@ -15,3 +15,20 @@ On Linux (Debian based) run:
 
 On powershell (windows) run:
 `./local-setup-windows.ps1`
+
+## Project 
+Build a webserver in a virtual machine.
+
+Requirements
+  * ubuntu virtual machine
+  * nginx webserver
+  * automation script
+
+acceptance test
+`curl URL` should have 200 HTTP status code
+
+to build the local environment  
+`$SHELL create-vm.sh`
+
+to delete the local environment 
+`$SHELL delete-vm`
