@@ -25,7 +25,8 @@ Requirements
   * automation script
 
 acceptance test
-`curl URL` should have 200 HTTP status code
+`curl http://$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
+should have 200 HTTP status code
 
 to build the local environment  
 `$SHELL create-vm.sh`
