@@ -11,7 +11,7 @@ if (get-command nano) {
   echo "nano already installed"
 } else {
   echo "installing nano"
-  choco install nano
+  choco install -y nano --force
 }
 
 # Git should be installed
@@ -19,7 +19,7 @@ if (get-command git) {
   echo "git is already installed"
 } else {
   echo "installing git"
-  choco install git
+  choco install -y git.install --params "'/GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf'"
 }
 
 # Virtualbox should be installed
@@ -27,7 +27,7 @@ if (get-command virtualbox) {
   echo "virtualbox is already installed"
 } else {
   echo "installing virtualbox"
-  choco install virtualbox
+  choco install -y virtualbox
 }
 
 # Multipass should be installed
@@ -35,5 +35,5 @@ if (get-command multipass) {
   echo "multipass is already installed"
 } else {
   echo "installing multipass"
-  choco install multipass --params="'/HyperVisor:VirtualBox'"
+  choco install -y multipass --params="'/HyperVisor:VirtualBox'"
 }
