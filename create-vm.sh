@@ -19,6 +19,7 @@ else
 users:
   - default
   - name: relativepath
+    shell: /bin/bash
     ssh_authorized_keys:
       - $(cat ./id_ed25519.pub)
 EOF
@@ -30,7 +31,7 @@ then
   echo "relativepath vm already exists" 
 else
   echo "creating vm relativepath"
-  multipass launch --name relativepath
+  multipass launch --name relativepath --cloud-init user-data
 fi
 
 
