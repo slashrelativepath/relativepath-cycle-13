@@ -32,7 +32,8 @@ to build the local environment
 `$SHELL create-vm.sh`
 
 to ssh to the local vm
-`ssh -i id_ed25519 relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
+`ssh -i id_ed25519 -o StrictHostKeyChecking=no relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
+
 
 to delete the local environment 
 `$SHELL delete-vm`
