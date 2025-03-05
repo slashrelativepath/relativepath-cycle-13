@@ -31,7 +31,7 @@ then
   echo "relativepath vm already exists" 
 else
   echo "creating vm relativepath"
-  multipass launch --name relativepath --cloud-init user-data
+  multipass launch --name relativepath --cpus 4 --memory 4G --cloud-init user-data
 fi
 
 
