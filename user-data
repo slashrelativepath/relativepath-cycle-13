@@ -1,7 +1,0 @@
-#cloud-config
-
-users:
-  - default
-  - name: relativepath
-    ssh_authorized_keys:
-      - PUT-PUBLIC-KEY-HERE
