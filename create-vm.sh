@@ -20,6 +20,7 @@ users:
   - default
   - name: relativepath
     shell: /bin/bash
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     ssh_authorized_keys:
       - $(cat ./id_ed25519.pub)
 EOF
