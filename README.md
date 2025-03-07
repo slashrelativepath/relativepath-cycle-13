@@ -24,12 +24,24 @@ Requirements
   * nginx webserver
   * automation script
 
-acceptance test
-`curl http://$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
-should have 200 HTTP status code
-
 to build the local environment  
 `$SHELL create-vm.sh`
 
+to copy webserver.sh to the vm:
+`scp -i id_ed25519 -o StrictHostKeyChecking=no webserver.sh relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}'):`
+
+to ssh to the local vm
+`ssh -i id_ed25519 -o StrictHostKeyChecking=no relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
+
+to execute the webserver.sh on the vm:
+`$SHELL webserver.sh`
+
+to validate the webserver is working, exit the vm and type this from your local:
+`curl -w "%{http_code}" http://$(multipass info relativepath | grep IPv4 | awk '{print $2}')`
+
 to delete the local environment 
-`$SHELL delete-vm`
+`$SHELL delete-vm.sh`
+
+to do the whole thing all at once:
+`$SHELL create-vm.sh && scp -i id_ed25519 -o StrictHostKeyChecking=no webserver.sh relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}'): && ssh -i id_ed25519 -o StrictHostKeyChecking=no relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}') '$SHELL webserver.sh' && curl -w "%{http_code}" http://$(multipass info relativepath | grep IPv4 | awk '{print $2}') && $SHELL delete-vm.sh`
+
