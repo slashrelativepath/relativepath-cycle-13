@@ -36,3 +36,7 @@ sudo docker ps
 # The container should be accessible on the host machine (the vm) at http://localhost:80 and you should get an http response of 200
 curl localhost:80
 
+# the container should be deleted when finished
+docker ps # copy container id from here
+
+docker stop <id from previous docker ps>
