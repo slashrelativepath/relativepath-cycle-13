@@ -45,7 +45,9 @@ to delete the local environment
 to do the whole thing all at once:
 `$SHELL create-vm.sh && scp -i id_ed25519 -o StrictHostKeyChecking=no webserver.sh relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}'): && ssh -i id_ed25519 -o StrictHostKeyChecking=no relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}') '$SHELL webserver.sh' && curl -w "%{http_code}" http://$(multipass info relativepath | grep IPv4 | awk '{print $2}') && $SHELL delete-vm.sh`
 
-## HOW TO SET UP AND RUN DOCKER WITH A NGINX IMAGE
+
+## HOW TO SET UP AND RUN AN NGINX IMAGE WITH DOCKER
+
 
 Git Setup:
 Look at your working directory
@@ -72,7 +74,7 @@ git checkout -b (name of branch)
 $SHELL create-vm.sh
 ```
 
-2. cat the README, copy the ssh to local vm command, paste it in your terminal and 
+2. cat the README.md, copy the ssh to local vm command, paste it in your terminal and 
 run it.
 
 3. Download the file that downloads docker
@@ -85,7 +87,8 @@ URL. Running this will grab a file called get-docker.sh and download it on your 
 machine. This file contains a script that when ran will download docker on your local 
 machine.
 
- 4. Run the script to download Docker ```shell
+ 4. Run the script to download Docker
+```shell
 $SHELL get-docker.sh
 ```
 
