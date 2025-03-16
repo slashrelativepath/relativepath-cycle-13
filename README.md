@@ -129,7 +129,7 @@ Save it and exit nano.
 
 9. Run the command:
 ```shell
-docker build -t rpnginx .
+sudo docker build -t rpnginx .
 ```
 
 This command builds a Docker image from the Dockerfile in the current directory and 
