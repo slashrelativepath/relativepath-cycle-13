@@ -1,3 +1,12 @@
+# docker-ce should be in the apt cache
+if (apt-cache show docker-ce)
+then
+  echo "Apt cache has docker-ce."
+else
+  echo "Updating apt cache..."
+  sudo apt update
+fi
+
 # docker-ce should be installed
 if (dpkg -s docker-ce)
 then
@@ -6,6 +15,8 @@ else
   echo "Installing docker-ce..."
   sudo apt install -y docker-ce
 fi
+
+
 
 # docker cli should be installed
 if (docker --version)
