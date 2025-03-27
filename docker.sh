@@ -1,3 +1,12 @@
+# docker should be added to the apt sources
+if (stat /etc/apt/sources.list.d/docker.list)
+then
+  echo "Docker already in apt sources."
+else
+  echo "Adding docker to the apt sources..."
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | sudo tee /etc/apt/sources.list.d/docker.list  
+fi
+
 # docker-ce should be in the apt cache
 if (apt-cache show docker-ce)
 then
