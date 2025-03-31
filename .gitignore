@@ -1,3 +1,7 @@
 id_ed25519*
 user-data
+*.pkg
+*.img
+*.exe
+*.iso
 
