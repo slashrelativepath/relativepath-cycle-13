@@ -1,3 +1,12 @@
+#Docker key should be downloaded. 
+if (stat /etc/apt/keyrings/docker.asc)
+then
+  echo "docker key already present"
+else
+  echo "adding docker key"
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo tee /etc/apt/keyrings/docker.asc
+fi
+
 # docker should be added to the apt sources
 if (stat /etc/apt/sources.list.d/docker.list)
 then
