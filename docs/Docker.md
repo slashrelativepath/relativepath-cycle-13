@@ -154,3 +154,17 @@ Exit the VM and type:
 ```shell
 $SHELL delete-vm.sh
 ```
+
+---
+# Quick Start
+Create docker vm
+
+```
+$SHELL create-vm.sh && scp -i id_ed25519 -o StrictHostKeyChecking=no docker.sh relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}'): && ssh -i id_ed25519 -o StrictHostKeyChecking=no relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')
+```
+
+Delete docker VM
+
+```
+$SHELL delete-vm.sh
+```
