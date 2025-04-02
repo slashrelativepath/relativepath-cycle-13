@@ -34,15 +34,31 @@ else
   sudo apt install -y docker-ce
 fi
 
+# docker-ce-cli should be in the apt cache
+if (apt-cache show docker-ce-cli)
+then
+  echo "Apt cache has docker-ce-cli."
+else
+  echo "Updating apt cache..."
+  sudo apt update
+fi
 
-
-# docker cli should be installed
+# docker-ce-cli should be installed
 if (docker --version)
 then
   echo "docker-ce-cli is already installed."
 else
   echo "Installing docker-ce-cli..."
   sudo apt install -y docker-ce-cli
+fi
+
+# containerd.io should be in the apt cache
+if (apt-cache show containerd.io)
+then
+  echo "Apt cache has containerd.io."
+else
+  echo "Updating apt cache..."
+  sudo apt update
 fi
 
 # containerd.io should be installed
@@ -52,6 +68,15 @@ then
 else
   echo "Installing containerd.io..."
   sudo apt install -y containerd.io
+fi
+
+# docker-buildx-plugin should be in the apt cache
+if (apt-cache show docker-buildx-plugin)
+then
+  echo "Apt cache has docker-buildx-plugin"
+else
+  echo "Updating apt cache..."
+  sudo apt update
 fi
 
 # docker-buildx-plugin should be installed
