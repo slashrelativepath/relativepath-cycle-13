@@ -168,3 +168,7 @@ Delete docker VM
 ```
 $SHELL delete-vm.sh
 ```
+
+ 26  sudo docker build -t rpnginx:latest .
+   27  docker run -it -d -p 80:80 rpnginx:latest
+   28  sudo docker run -it -d -p 80:80 rpnginx:latest
