@@ -16,24 +16,6 @@ else
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | sudo tee /etc/apt/sources.list.d/docker.list  
 fi
 
-# docker-ce should be in the apt cache
-if (apt-cache show docker-ce)
-then
-  echo "Apt cache has docker-ce."
-else
-  echo "Updating apt cache..."
-  sudo apt update
-fi
-
-# docker-ce should be installed
-if (dpkg -s docker-ce)
-then
-  echo "docker-ce is already installed."
-else
-  echo "Installing docker-ce..."
-  sudo apt install -y docker-ce
-fi
-
 # docker-ce-cli should be in the apt cache
 if (apt-cache show docker-ce-cli)
 then
@@ -68,6 +50,24 @@ then
 else
   echo "Installing containerd.io..."
   sudo apt install -y containerd.io
+fi
+
+# docker-ce should be in the apt cache
+if (apt-cache show docker-ce)
+then
+  echo "Apt cache has docker-ce."
+else
+  echo "Updating apt cache..."
+  sudo apt update
+fi
+
+# docker-ce should be installed
+if (dpkg -s docker-ce)
+then
+  echo "docker-ce is already installed."
+else
+  echo "Installing docker-ce..."
+  sudo apt install -y docker-ce
 fi
 
 # docker-buildx-plugin should be in the apt cache
