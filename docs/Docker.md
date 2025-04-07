@@ -160,7 +160,7 @@ $SHELL delete-vm.sh
 Create docker vm
 
 ```
-$SHELL create-vm.sh && scp -i id_ed25519 -o StrictHostKeyChecking=no docker.sh relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}'): && ssh -i id_ed25519 -o StrictHostKeyChecking=no relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')
+$SHELL create-vm.sh && scp -i id_ed25519 -o StrictHostKeyChecking=no docker.sh webserver.sh Dockerfile relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}'): && ssh -i id_ed25519 -o StrictHostKeyChecking=no relativepath@$(multipass info relativepath | grep IPv4 | awk '{print $2}')
 ```
 
 Delete docker VM
@@ -169,6 +169,10 @@ Delete docker VM
 $SHELL delete-vm.sh
 ```
 
- 26  sudo docker build -t rpnginx:latest .
-   27  docker run -it -d -p 80:80 rpnginx:latest
-   28  sudo docker run -it -d -p 80:80 rpnginx:latest
+Build and run docker nginx image
+```shell 
+sudo docker build -t rpnginx:latest .
+docker run -it -d -p 80:80 rpnginx:latest
+sudo docker run -it -d -p 80:80 rpnginx:latest
+```
+
